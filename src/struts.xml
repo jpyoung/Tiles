@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		
+		<action name="homeViewLink" method="home" class="actions.Driver">
+			<interceptor-ref name="validation">
+				<param name="excludeMethods">home</param>
+			</interceptor-ref>
+			<result name="home" type="tiles">homeView</result>
+		</action>
+
+	<action name="searchForThis" class="actions.SearchDriver" method="search">
+		<result name="success" type="tiles">searchRecordsView</result>
+		<result name="nothingFound" type="tiles">noSearchResultsView</result>
+	</action>
+
+	<action name="hello" class="actions.Driver" method="submit">
+		<result name="success" type="tiles">SimpleAcknowledgementView</result>
+		<result name="winner" type="tiles">WinnerAcknowledgementView</result>
+		<result name="input" type="tiles">surveyFormView</result>
+	</action>
+
+	<action name="cancelAction" class="actions.Driver" method="cancelSurvey">
+		<interceptor-ref name="params" />
+		<interceptor-ref name="validation">
+			<param name="excludeMethods">cancelSurvey</param>
+		</interceptor-ref>
+
+		<result name="success" type="tiles">homeView</result>
+	</action>
+
+	<action name="takeSurvey" class="actions.Driver" method="gotoSurveyView">
+		<interceptor-ref name="validation">
+			<param name="excludeMethods">gotoSurveyView</param>
+		</interceptor-ref>
+		<result name="success" type="tiles">surveyFormView</result>
+	</action>
+
+	<action name="viewListPage" class="actions.Driver" method="gotoListView">
+		<interceptor-ref name="params" />
+		<interceptor-ref name="validation">
+			<param name="excludeMethods">gotoListView</param>
+		</interceptor-ref>
+		
+		<result name="success" type="tiles">ListSurveyView</result>
+	</action>
+
+	<action name="searchRecordsPage" class="actions.Driver" method="gotoSearchRecordsView">
+		<interceptor-ref name="validation">
+			<param name="excludeMethods">gotoSearchRecordsView</param>
+		</interceptor-ref>
+		
+		<result name="success" type="tiles">searchRecordsView</result>
+	</action>		
+		
+	</package>
+</struts>

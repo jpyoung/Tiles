@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+  <definition name="baseLayout" template="/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/commonViews/header.jsp"/>
+      <put-attribute name="body"   value=""/>
+      <put-attribute name="footer"   value="/commonViews/footer.jsp"/>
+  </definition>
+  
+  <definition name="searchBaseLayout" template="/searchBaseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/commonViews/header.jsp"/>
+      <put-attribute name="searchBar" value="/searchViews/searchMenu.jsp"/>
+      <put-attribute name="body"   value=""/>
+      <put-attribute name="footer"   value="/commonViews/footer.jsp"/>
+  </definition>  
+  
+  <definition name="homeView" extends="baseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/homePage.jsp"/>      
+  </definition>
+
+  <definition name="surveyFormView" extends="baseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/surveyViews/survey.jsp"/>      
+  </definition>  
+  
+   <definition name="ListSurveyView" extends="baseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/ListSurvey.jsp"/>      
+  </definition>   
+
+   <definition name="SimpleAcknowledgementView" extends="baseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/surveyViews/SimpleAcknowledgement.jsp"/>      
+  </definition>  
+  
+  <definition name="WinnerAcknowledgementView" extends="baseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/surveyViews/WinnerAcknowledgement.jsp"/>      
+  </definition> 
+
+  <definition name="searchRecordsView" extends="searchBaseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/searchViews/foundResults.jsp"/>      
+  </definition> 
+  
+  <definition name="noSearchResultsView" extends="searchBaseLayout">
+      <put-attribute name="title"  value="SWE645 HW2 - Jack Young"/>
+      <put-attribute name="body"   value="/searchViews/searchRecords.jsp"/>  
+  </definition>
+
+
+</tiles-definitions>
